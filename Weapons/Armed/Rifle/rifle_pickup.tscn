@@ -1,0 +1,54 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Weapons/Armed/Pistol/weapon_pickup.gd" type="Script" id=1]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_T3_rough.jpg" type="Texture" id=2]
+[ext_resource path="res://Weapon assets/Rifle/Railgun_color.jpg" type="Texture" id=3]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_rough.jpg" type="Texture" id=4]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_T2_nmap.jpg" type="Texture" id=5]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_T3_color.jpg" type="Texture" id=6]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_T3_nmap.jpg" type="Texture" id=7]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_nmap.jpg" type="Texture" id=8]
+[ext_resource path="res://Weapon assets/Rifle/Railgun_Prototype-Wavefront OBJ.obj" type="ArrayMesh" id=9]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 6 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 8 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 7 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 2 )
+roughness_texture = ExtResource( 4 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.0819059, 0.210497, 0.71081 )
+
+[node name="Rifle" type="RigidBody"]
+script = ExtResource( 1 )
+weapon_name = "Rifle"
+
+[node name="Railgun_Prototype-Wavefront OBJ" type="MeshInstance" parent="."]
+transform = Transform( -6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 0.109355, 0, 0.11523 )
+mesh = ExtResource( 9 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109355, 0.0545239, -0.511304 )
+shape = SubResource( 5 )

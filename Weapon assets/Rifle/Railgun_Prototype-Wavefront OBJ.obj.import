@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Railgun_Prototype-Wavefront OBJ.obj-f466096914f143e500d14d17ace3c89f.mesh"
+
+[deps]
+
+files=[ "res://.import/Railgun_Prototype-Wavefront OBJ.obj-f466096914f143e500d14d17ace3c89f.mesh" ]
+
+source_file="res://Weapon assets/Rifle/Railgun_Prototype-Wavefront OBJ.obj"
+dest_files=[ "res://.import/Railgun_Prototype-Wavefront OBJ.obj-f466096914f143e500d14d17ace3c89f.mesh", "res://.import/Railgun_Prototype-Wavefront OBJ.obj-f466096914f143e500d14d17ace3c89f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

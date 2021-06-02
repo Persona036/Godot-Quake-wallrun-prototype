@@ -1,0 +1,185 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Weapons/Armed/Rifle/rifle.gd" type="Script" id=1]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_T3_rough.jpg" type="Texture" id=2]
+[ext_resource path="res://Weapon assets/Rifle/Railgun_color.jpg" type="Texture" id=3]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_rough.jpg" type="Texture" id=4]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_T2_nmap.jpg" type="Texture" id=5]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_T3_color.jpg" type="Texture" id=6]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_T3_nmap.jpg" type="Texture" id=7]
+[ext_resource path="res://Weapon assets/Rifle/rail-gun prototype_nmap.jpg" type="Texture" id=8]
+[ext_resource path="res://Weapon assets/Rifle/Railgun_Prototype-Wavefront OBJ.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://Weapons/muzzle_flash.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Weapons/Armed/Rifle/rifle_pickup.tscn" type="PackedScene" id=11]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 6 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 8 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 7 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 2 )
+roughness_texture = ExtResource( 4 )
+
+[sub_resource type="Animation" id=5]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root/Anchor:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show_weapon"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root/Anchor/Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, -5 ), Vector3( 0, -90, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "fire_bullet"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Root/Anchor/Body:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -1.499 ), Vector3( 0, 0, -1.35 ), Vector3( 0, 0, -1.499 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root/Anchor/Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, -360 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Root/Anchor:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -90, 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide_weapons"
+} ]
+}
+
+[node name="Rifle" type="Spatial"]
+script = ExtResource( 1 )
+weapon_name = "Rifle"
+weapon_pickup = ExtResource( 11 )
+equip_pos = Vector3( 0.249, -0.471, -1.508 )
+impact_effect = ExtResource( 10 )
+muzzle_flash_path = NodePath("Root/Anchor/Body/MuzzleFlash")
+
+[node name="Root" type="Spatial" parent="."]
+
+[node name="Anchor" type="Spatial" parent="Root"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+
+[node name="Body" type="Spatial" parent="Root/Anchor"]
+transform = Transform( -4.36136e-10, -2.92232e-11, -0.01, -0.000668549, 0.00997763, 0, 0.00997763, 0.000668549, -4.37114e-10, 0, 0, -1.38477 )
+
+[node name="Railgun_Prototype-Wavefront OBJ" type="MeshInstance" parent="Root/Anchor/Body"]
+transform = Transform( 150, 0, 0, 0, 150, 0, 0, 0, 150, 0, 0, 0 )
+mesh = ExtResource( 9 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )
+
+[node name="MuzzleFlash" parent="Root/Anchor/Body" instance=ExtResource( 10 )]
+transform = Transform( 77.0001, 7.27014e-27, -1.13687e-12, 0, 77.0001, 1.36779e-13, -2.27374e-13, -1.36779e-13, 77, -99.1871, 13.0982, -0.732343 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Equip = SubResource( 5 )
+anims/Fire = SubResource( 6 )
+anims/Reload = SubResource( 7 )
+anims/Unequip = SubResource( 8 )

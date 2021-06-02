@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Weapons/Armed/Pistol/weapon_pickup.gd" type="Script" id=1]
+[ext_resource path="res://Weapon assets/pistol/source/pistol3rdPerson.fbx" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.0334706, 0.0925467, 0.134316 )
+
+[node name="Pistol" type="RigidBody"]
+script = ExtResource( 1 )
+weapon_name = "Pistol"
+
+[node name="pistol3rdPerson" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0232405, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0232405, 0.01108, -0.0853812 )
+shape = SubResource( 1 )

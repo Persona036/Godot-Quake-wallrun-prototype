@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Maps/Map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=3]
+[ext_resource path="res://Weapons/ammo_pickup/ammo_pickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Weapons/Armed/Rifle/rifle_pickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Weapons/Armed/Pistol/pistol_pickup.tscn" type="PackedScene" id=6]
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Map" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.080307, -0.0701351, -0.299278 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.80305, 10, 0.567586 )
+
+[node name="Pickups" type="Spatial" parent="."]
+
+[node name="AmmoPickups" type="Spatial" parent="Pickups"]
+
+[node name="AmmoPickup" parent="Pickups/AmmoPickups" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2096, 0.347157, 0 )
+
+[node name="AmmoPickup2" parent="Pickups/AmmoPickups" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.69192, 0.360149, 0.00976086 )
+
+[node name="AmmoPickup3" parent="Pickups/AmmoPickups" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4723, 0.347157, 0 )
+
+[node name="AmmoPickup4" parent="Pickups/AmmoPickups" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7171, 0.347157, 0 )
+
+[node name="WeaponPickups" type="Spatial" parent="Pickups"]
+
+[node name="Pistol" parent="Pickups/WeaponPickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9446, 0.674, 7.447 )
+
+[node name="Rifle" parent="Pickups/WeaponPickups" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1417, 0.674231, 7.44721 )
