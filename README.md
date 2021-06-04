@@ -1,6 +1,6 @@
-# Godot-Strafe-Jumping-Wallrunning
+# Godot-Strafe-Jumping
 
-Air strafing mechanics for Godot 3 with wallrun and unfinished weapon system included
+Air strafing mechanics for Godot 3
 
 Ported from https://github.com/WiggleWizard/quake3-movement-unity3d
 

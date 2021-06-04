@@ -21,12 +21,17 @@ onready var mag_size = ammo_in_mag
 export var equip_speed = 1.0
 export var unequip_speed = 1.0
 export var reload_speed = 1.0
-
+var sway_pivot = null
 #effects
 export(PackedScene) var impact_effect
 export(NodePath) var muzzle_flash_path
 onready var muzzle_flash = get_node(muzzle_flash_path)
-
+export var ads_pos = Vector3.ZERO
+var ads_speed = 10
+var is_ads = false
+func _ready():
+	set_as_toplevel(true)
+	call_deferred("create_sway_pivot")
 func fire():
 	if not is_reloading:
 		if ammo_in_mag > 0:
@@ -127,3 +132,41 @@ func drop_weapon():
 	pickup.extra_ammo = extra_ammo
 	pickup.mag_size = mag_size
 	queue_free()
+
+func create_sway_pivot():
+	sway_pivot = Spatial.new()
+	get_parent().add_child(sway_pivot)
+	sway_pivot.transform.origin = equip_pos
+	sway_pivot.name = weapon_name + "_Sway"
+func sway(delta):
+	global_transform.origin = sway_pivot.global_transform.origin
+	
+	var self_quat = global_transform.basis.get_rotation_quat()
+	var pivot_quat = sway_pivot.global_transform.basis.get_rotation_quat()
+	
+	var new_quat = Quat()
+	
+	if is_ads == false:
+		new_quat = self_quat.slerp(pivot_quat, 25 * delta)
+	else:
+		new_quat = pivot_quat
+	
+	global_transform.basis = Basis(new_quat)
+
+
+func aim_down_sights(value, delta):
+	is_ads = value
+	
+	if is_ads == false and player.camera.fov == 85:
+		return
+	
+	if is_ads:
+		sway_pivot.transform.origin = sway_pivot.transform.origin.linear_interpolate(ads_pos, ads_speed * delta)
+		player.camera.fov = lerp(player.camera.fov, 50, ads_speed * delta)
+	else:
+		sway_pivot.transform.origin = sway_pivot.transform.origin.linear_interpolate(equip_pos, ads_speed * delta)
+		player.camera.fov = lerp(player.camera.fov, 85, ads_speed * delta)
+
+func _exit_tree():
+	sway_pivot . queue_free()
+

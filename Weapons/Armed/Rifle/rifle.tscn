@@ -158,6 +158,7 @@ weapon_pickup = ExtResource( 11 )
 equip_pos = Vector3( 0.249, -0.471, -1.508 )
 impact_effect = ExtResource( 10 )
 muzzle_flash_path = NodePath("Root/Anchor/Body/MuzzleFlash")
+ads_pos = Vector3( -0.46, -0.118, -0.966 )
 
 [node name="Root" type="Spatial" parent="."]
 
@@ -169,6 +170,7 @@ transform = Transform( -4.36136e-10, -2.92232e-11, -0.01, -0.000668549, 0.009977
 
 [node name="Railgun_Prototype-Wavefront OBJ" type="MeshInstance" parent="Root/Anchor/Body"]
 transform = Transform( 150, 0, 0, 0, 150, 0, 0, 0, 150, 0, 0, 0 )
+layers = 2
 mesh = ExtResource( 9 )
 material/0 = SubResource( 1 )
 material/1 = SubResource( 2 )
@@ -177,6 +179,7 @@ material/3 = SubResource( 4 )
 
 [node name="MuzzleFlash" parent="Root/Anchor/Body" instance=ExtResource( 10 )]
 transform = Transform( 77.0001, 7.27014e-27, -1.13687e-12, 0, 77.0001, 1.36779e-13, -2.27374e-13, -1.36779e-13, 77, -99.1871, 13.0982, -0.732343 )
+layers = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Equip = SubResource( 5 )

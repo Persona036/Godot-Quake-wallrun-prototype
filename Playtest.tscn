@@ -1,0 +1,837 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ps1 assets/OBJ format/detailLight_single.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Ps1 assets/OBJ format/detailDumpster_closed.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://Ps1 assets/OBJ format/roadDirt_pavement.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://Ps1 assets/OBJ format/wallA_roof.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://Ps1 assets/OBJ format/wallA.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://Ps1 assets/OBJ format/wallA_door.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://Ps1 assets/OBJ format/wallB.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://Ps1 assets/OBJ format/roadDirt_center.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://Ps1 assets/OBJ format/roadDirt_damaged.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://Ps1 assets/OBJ format/truck_flat.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://Ps1 assets/OBJ format/wallA_corner.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://Ps1 assets/OBJ format/wallB_window.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://Ps1 assets/OBJ format/wallA_window.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://Ps1 assets/OBJ format/wallB_garage.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://Weapons/ammo_pickup/ammo_pickup.tscn" type="PackedScene" id=16]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( 0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 0.2, 0, -0.3, 0.2, 0.5, 0.3, 0.2, 0.5, -0.3, 0.2, 0.5, 0.3, 0.2, 0, -0.3, 0.2, 0, 0.3, -0.2, 0.3, -0.3, -0.2, 0, 0.3, -0.2, 0, -0.3, -0.2, 0, 0.3, -0.2, 0.3, -0.3, -0.2, 0.3, 0.3, -0.2, 0, 0.3, 0.2, 0.5, 0.3, 0.2, 0, 0.3, 0.2, 0.5, 0.3, -0.2, 0, 0.3, -0.2, 0.3, 0.3, 0.2, 0, -0.3, -0.2, 0.3, -0.3, -0.2, 0, -0.3, -0.2, 0.3, -0.3, 0.2, 0, -0.3, 0.2, 0.5, -0.3, 0.2, 0, -0.3, -0.2, 0, 0.3, 0.2, 0, 0.3, -0.2, 0, 0.3, 0.2, 0, -0.3, -0.2, 0, -0.3, 0.2, 0.5, 0.3, -0.2, 0.3, -0.3, 0.2, 0.5, -0.3, -0.2, 0.3, -0.3, 0.2, 0.5, 0.3, -0.2, 0.3, 0.3 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( 0.0231, 0.9538, 0, -0.0231, 0.96, -0.0231, 0.0231, 0.96, -0.0231, -0.0231, 0.96, -0.0231, 0.0231, 0.9538, 0, -0.0231, 0.9538, 0, 0.0231, 0.9369, 0.0169, -0.0231, 0.9538, 0, 0.0231, 0.9538, 0, -0.0231, 0.9538, 0, 0.0231, 0.9369, 0.0169, -0.0231, 0.9369, 0.0169, 0.0231, 0.9369, 0.0169, -0.0231, 0.9138, 0.0231, -0.0231, 0.9369, 0.0169, -0.0231, 0.9138, 0.0231, 0.0231, 0.9369, 0.0169, 0.0231, 0.9138, 0.0231, -0.0231, 0.96, -0.0891, -0.0346, 0.96, -0.2046, 0, 0.96, -0.2211, -0.0346, 0.96, -0.2046, -0.0231, 0.96, -0.0891, -0.0346, 0.96, -0.1551, 0, 0.96, -0.2211, -0.0231, 0.96, -0.0231, -0.0231, 0.96, -0.0891, 0, 0.96, -0.2211, 0.0231, 0.96, -0.0231, -0.0231, 0.96, -0.0231, 0, 0.96, -0.2211, 0.0231, 0.96, -0.0891, 0.0231, 0.96, -0.0231, 0, 0.96, -0.2211, 0.0346, 0.96, -0.1551, 0.0231, 0.96, -0.0891, 0.0346, 0.96, -0.1551, 0, 0.96, -0.2211, 0.0346, 0.96, -0.2046, 0.0346, 0.9138, -0.1551, 0.0231, 0.96, -0.0891, 0.0346, 0.96, -0.1551, 0.0231, 0.96, -0.0891, 0.0346, 0.9138, -0.1551, 0.0231, 0.9138, -0.0891, 0.0346, 0.9138, -0.2046, 0.0231, 0.9138, -0.0891, 0.0346, 0.9138, -0.1551, 0.0231, 0.9138, -0.0891, 0.0346, 0.9138, -0.2046, 0, 0.9138, -0.2211, 0.0231, 0.9138, -0.0891, 0, 0.9138, -0.2211, -0.0231, 0.9138, -0.0891, -0.0231, 0.9138, -0.0891, 0, 0.9138, -0.2211, -0.0346, 0.9138, -0.2046, -0.0231, 0.9138, -0.0891, -0.0346, 0.9138, -0.2046, -0.0346, 0.9138, -0.1551, -0.0231, 0.9138, -0.0231, 0.0231, 0.9138, -0.0891, -0.0231, 0.9138, -0.0891, 0.0231, 0.9138, -0.0891, -0.0231, 0.9138, -0.0231, 0.0231, 0.9138, -0.0231, -0.0231, 0.2446, 0.0231, 0.0231, 0.9138, 0.0231, 0.0231, 0.2446, 0.0231, 0.0231, 0.9138, 0.0231, -0.0231, 0.2446, 0.0231, -0.0231, 0.9138, 0.0231, 0.0231, 0.2446, -0.0231, -0.0231, 0.9138, -0.0231, -0.0231, 0.2446, -0.0231, -0.0231, 0.9138, -0.0231, 0.0231, 0.2446, -0.0231, 0.0231, 0.9138, -0.0231, 0.0431, 0, -0.0431, -0.0431, 0, 0.0431, 0.0431, 0, 0.0431, -0.0431, 0, 0.0431, 0.0431, 0, -0.0431, -0.0431, 0, -0.0431, 0.0346, 0.9138, -0.2046, 0.0346, 0.96, -0.1551, 0.0346, 0.96, -0.2046, 0.0346, 0.96, -0.1551, 0.0346, 0.9138, -0.2046, 0.0346, 0.9138, -0.1551, -0.0346, 0.96, -0.2046, -0.0346, 0.9138, -0.1551, -0.0346, 0.9138, -0.2046, -0.0346, 0.9138, -0.1551, -0.0346, 0.96, -0.2046, -0.0346, 0.96, -0.1551, -0.0346, 0.96, -0.1551, -0.0231, 0.9138, -0.0891, -0.0346, 0.9138, -0.1551, -0.0231, 0.9138, -0.0891, -0.0346, 0.96, -0.1551, -0.0231, 0.96, -0.0891, 0, 0.9138, -0.2211, -0.0346, 0.96, -0.2046, -0.0346, 0.9138, -0.2046, -0.0346, 0.96, -0.2046, 0, 0.9138, -0.2211, 0, 0.96, -0.2211, 0.0346, 0.9138, -0.2046, 0, 0.96, -0.2211, 0, 0.9138, -0.2211, 0, 0.96, -0.2211, 0.0346, 0.9138, -0.2046, 0.0346, 0.96, -0.2046, 0.0231, 0.9138, -0.0891, 0.0231, 0.96, -0.0231, 0.0231, 0.96, -0.0891, 0.0231, 0.96, -0.0231, 0.0231, 0.9138, -0.0891, 0.0231, 0.9138, -0.0231, 0.0231, 0.96, -0.0231, 0.0231, 0.9138, -0.0231, 0.0231, 0.9538, 0, 0.0231, 0.9538, 0, 0.0231, 0.9138, -0.0231, 0.0231, 0.2446, -0.0231, 0.0231, 0.9538, 0, 0.0231, 0.2446, -0.0231, 0.0231, 0.2446, 0.0231, 0.0231, 0.9538, 0, 0.0231, 0.2446, 0.0231, 0.0231, 0.9369, 0.0169, 0.0231, 0.9369, 0.0169, 0.0231, 0.2446, 0.0231, 0.0231, 0.9138, 0.0231, -0.0231, 0.9138, -0.0231, -0.0231, 0.2446, 0.0231, -0.0231, 0.2446, -0.0231, -0.0231, 0.2446, 0.0231, -0.0231, 0.9138, -0.0231, -0.0231, 0.96, -0.0231, -0.0231, 0.2446, 0.0231, -0.0231, 0.96, -0.0231, -0.0231, 0.9538, 0, -0.0231, 0.2446, 0.0231, -0.0231, 0.9538, 0, -0.0231, 0.9369, 0.0169, -0.0231, 0.2446, 0.0231, -0.0231, 0.9369, 0.0169, -0.0231, 0.9138, 0.0231, -0.0231, 0.9138, -0.0231, -0.0231, 0.96, -0.0891, -0.0231, 0.96, -0.0231, -0.0231, 0.96, -0.0891, -0.0231, 0.9138, -0.0231, -0.0231, 0.9138, -0.0891, 0.0431, 0, -0.0431, -0.0431, 0.2446, -0.0431, -0.0431, 0, -0.0431, -0.0431, 0.2446, -0.0431, 0.0431, 0, -0.0431, 0.0431, 0.2446, -0.0431, 0.0231, 0.2446, -0.0231, 0.0431, 0.2446, -0.0431, 0.0431, 0.2446, 0.0431, 0.0431, 0.2446, -0.0431, 0.0231, 0.2446, -0.0231, -0.0431, 0.2446, -0.0431, -0.0431, 0.2446, -0.0431, 0.0231, 0.2446, -0.0231, -0.0231, 0.2446, -0.0231, -0.0431, 0.2446, -0.0431, -0.0231, 0.2446, -0.0231, -0.0231, 0.2446, 0.0231, 0.0431, 0.2446, 0.0431, 0.0231, 0.2446, 0.0231, 0.0231, 0.2446, -0.0231, 0.0231, 0.2446, 0.0231, 0.0431, 0.2446, 0.0431, -0.0431, 0.2446, 0.0431, 0.0231, 0.2446, 0.0231, -0.0431, 0.2446, 0.0431, -0.0231, 0.2446, 0.0231, -0.0231, 0.2446, 0.0231, -0.0431, 0.2446, 0.0431, -0.0431, 0.2446, -0.0431, -0.0431, 0.2446, -0.0431, -0.0431, 0, 0.0431, -0.0431, 0, -0.0431, -0.0431, 0, 0.0431, -0.0431, 0.2446, -0.0431, -0.0431, 0.2446, 0.0431, 0.0431, 0, -0.0431, 0.0431, 0.2446, 0.0431, 0.0431, 0.2446, -0.0431, 0.0431, 0.2446, 0.0431, 0.0431, 0, -0.0431, 0.0431, 0, 0.0431, -0.0431, 0, 0.0431, 0.0431, 0.2446, 0.0431, 0.0431, 0, 0.0431, 0.0431, 0.2446, 0.0431, -0.0431, 0, 0.0431, -0.0431, 0.2446, 0.0431 )
+
+[sub_resource type="ConcavePolygonShape" id=9]
+data = PoolVector3Array( 0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, -0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 0, -0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5 )
+
+[sub_resource type="ConcavePolygonShape" id=10]
+data = PoolVector3Array( 0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, -0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 0, -0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5 )
+
+[sub_resource type="ConcavePolygonShape" id=12]
+data = PoolVector3Array( 0.2976, 0, -0.2505, 0.5, 0, -0.5, 0.5, 0, 0, 0.5, 0, -0.5, 0.2976, 0, -0.2505, -0.5, 0, -0.5, 0.2976, 0, -0.2505, 0.5, 0, 0, 0.3814, 0, 0, -0.5, 0, -0.5, 0.2976, 0, -0.2505, -0.1766, 0, -0.0919, -0.1766, 0, -0.0919, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.0179, 0, 0.3823, -0.5, 0, 0.5, -0.1766, 0, -0.0919, -0.0179, 0, 0.3823, 0, 0, 0.5, -0.5, 0, 0.5, 0, 0, 0.5, -0.0179, 0, 0.3823, 0, 0, 0.3763, 0.2976, 0, -0.2505, -0.1766, 0.05, -0.0919, -0.1766, 0, -0.0919, -0.1766, 0.05, -0.0919, 0.2976, 0, -0.2505, 0.2976, 0.05, -0.2505, -0.1766, 0.05, -0.0919, -0.0179, 0, 0.3823, -0.1766, 0, -0.0919, -0.0179, 0, 0.3823, -0.1766, 0.05, -0.0919, -0.0179, 0.05, 0.3823, 0, 0, 0.3763, 0.4562, 0.05, 0.2236, 0.4562, 0, 0.2236, 0.4562, 0.05, 0.2236, 0, 0, 0.3763, -0.0179, 0, 0.3823, 0.4562, 0.05, 0.2236, -0.0179, 0, 0.3823, -0.0179, 0.05, 0.3823, 0.2976, 0, -0.2505, 0.4562, 0.05, 0.2236, 0.2976, 0.05, -0.2505, 0.4562, 0.05, 0.2236, 0.2976, 0, -0.2505, 0.3814, 0, 0, 0.4562, 0.05, 0.2236, 0.3814, 0, 0, 0.4562, 0, 0.2236, -0.0179, 0.05, 0.3823, 0.2976, 0.05, -0.2505, 0.4562, 0.05, 0.2236, 0.2976, 0.05, -0.2505, -0.0179, 0.05, 0.3823, -0.1766, 0.05, -0.0919, 0.4562, 0, 0.2236, 0.5, 0, 0, 0.5, 0, 0.5, 0.5, 0, 0, 0.4562, 0, 0.2236, 0.3814, 0, 0, 0, 0, 0.5, 0.4562, 0, 0.2236, 0.5, 0, 0.5, 0.4562, 0, 0.2236, 0, 0, 0.5, 0, 0, 0.3763 )
+
+[sub_resource type="ConcavePolygonShape" id=13]
+data = PoolVector3Array( 0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5 )
+
+[sub_resource type="ConcavePolygonShape" id=14]
+data = PoolVector3Array( -0.415, 0.0814, 0.6142, 0.415, 0, 0.6142, -0.415, 0, 0.6142, 0.415, 0, 0.6142, -0.415, 0.0814, 0.6142, 0.415, 0.0814, 0.6142, -0.415, 0, -0.6308, 0.415, 0, 0.6142, 0.415, 0, -0.6308, 0.415, 0, 0.6142, -0.415, 0, -0.6308, -0.415, 0, 0.6142, 0.415, 0, -0.6308, -0.415, 0.0814, -0.6308, -0.415, 0, -0.6308, -0.415, 0.0814, -0.6308, 0.415, 0, -0.6308, 0.415, 0.0814, -0.6308, 0.415, 0.8272, -0.6564, -0.415, 0.8272, -0.6929, 0.415, 0.8272, -0.6929, -0.415, 0.8272, -0.6929, 0.415, 0.8272, -0.6564, -0.415, 0.8272, -0.6564, 0.415, 0.5348, -0.8217, -0.415, 0.7797, -0.7484, -0.415, 0.5348, -0.8217, -0.415, 0.7797, -0.7484, 0.415, 0.5348, -0.8217, 0.415, 0.7797, -0.7484, -0.415, 0.5348, -0.8217, 0.415, 0.0814, -0.8217, 0.415, 0.5348, -0.8217, 0.415, 0.0814, -0.8217, -0.415, 0.5348, -0.8217, -0.415, 0.0814, -0.8217, 0.415, 0.8272, -0.6929, -0.415, 0.7797, -0.7484, 0.415, 0.7797, -0.7484, -0.415, 0.7797, -0.7484, 0.415, 0.8272, -0.6929, -0.415, 0.8272, -0.6929, 0.415, 0.8272, -0.6564, -0.415, 1.006, -0.5695, -0.415, 0.8272, -0.6564, -0.415, 1.006, -0.5695, 0.415, 0.8272, -0.6564, 0.415, 1.006, -0.5695, 0.415, 0.0814, -0.8217, -0.415, 0.0814, -0.6308, 0.415, 0.0814, -0.6308, -0.415, 0.0814, -0.6308, 0.415, 0.0814, -0.8217, -0.415, 0.0814, -0.8217, 0.415, 0.0814, 0.6142, -0.415, 0.0814, 0.8217, 0.415, 0.0814, 0.8217, -0.415, 0.0814, 0.8217, 0.415, 0.0814, 0.6142, -0.415, 0.0814, 0.6142, 0.415, 1.006, -0.3465, -0.415, 1.006, -0.5695, 0.415, 1.006, -0.5695, -0.415, 1.006, -0.5695, 0.415, 1.006, -0.3465, -0.415, 1.006, -0.3465, -0.415, 0.7797, -0.7484, -0.415, 0.0814, -0.8217, -0.415, 0.5348, -0.8217, -0.415, 0.0814, -0.8217, -0.415, 0.7797, -0.7484, -0.415, 0.0814, -0.6308, -0.415, 0.0814, -0.6308, -0.415, 0.7797, -0.7484, -0.415, 0.8272, -0.6929, -0.415, 0.0814, -0.6308, -0.415, 0.8272, -0.6929, -0.415, 0.8272, -0.6564, -0.415, 0.0814, -0.6308, -0.415, 0.8272, -0.6564, -0.415, 1.006, -0.5695, -0.415, 0.3455, -0.3465, -0.415, 0.0814, -0.6308, -0.415, 1.006, -0.5695, -0.415, 0, 0.6142, -0.415, 0.0814, -0.6308, -0.415, 0.3455, -0.3465, -0.415, 0.0814, -0.6308, -0.415, 0, 0.6142, -0.415, 0, -0.6308, -0.415, 0, 0.6142, -0.415, 0.3455, -0.3465, -0.415, 0.0814, 0.6142, -0.415, 0.0814, 0.6142, -0.415, 0.3455, -0.3465, -0.415, 0.3455, 0.8217, -0.415, 0.0814, 0.6142, -0.415, 0.3455, 0.8217, -0.415, 0.0814, 0.8217, -0.415, 1.006, -0.5695, -0.415, 1.006, -0.3465, -0.415, 0.3455, -0.3465, 0.2644, 0.2955, 0.8217, 0.415, 0.0814, 0.8217, -0.415, 0.0814, 0.8217, 0.415, 0.0814, 0.8217, 0.2644, 0.2955, 0.8217, 0.415, 0.3455, 0.8217, 0.415, 0.3455, 0.8217, 0.2644, 0.2955, 0.8217, 0.2644, 0.3455, 0.8217, -0.415, 0.0814, 0.8217, -0.2644, 0.2955, 0.8217, 0.2644, 0.2955, 0.8217, -0.2644, 0.2955, 0.8217, -0.415, 0.0814, 0.8217, -0.415, 0.3455, 0.8217, -0.2644, 0.2955, 0.8217, -0.415, 0.3455, 0.8217, -0.2644, 0.3455, 0.8217, 0.415, 0.0814, 0.6142, 0.415, 0.3455, 0.8217, 0.415, 0.3455, -0.3465, 0.415, 0.3455, 0.8217, 0.415, 0.0814, 0.6142, 0.415, 0.0814, 0.8217, 0.415, 0.3455, -0.3465, 0.415, 0, 0.6142, 0.415, 0.0814, 0.6142, 0.415, 0.3455, -0.3465, 0.415, 0, -0.6308, 0.415, 0, 0.6142, 0.415, 1.006, -0.5695, 0.415, 0, -0.6308, 0.415, 0.3455, -0.3465, 0.415, 1.006, -0.5695, 0.415, 0.0814, -0.6308, 0.415, 0, -0.6308, 0.415, 0.8272, -0.6564, 0.415, 0.0814, -0.6308, 0.415, 1.006, -0.5695, 0.415, 0.8272, -0.6929, 0.415, 0.0814, -0.6308, 0.415, 0.8272, -0.6564, 0.415, 0.7797, -0.7484, 0.415, 0.0814, -0.6308, 0.415, 0.8272, -0.6929, 0.415, 0.7797, -0.7484, 0.415, 0.0814, -0.8217, 0.415, 0.0814, -0.6308, 0.415, 0.0814, -0.8217, 0.415, 0.7797, -0.7484, 0.415, 0.5348, -0.8217, 0.415, 1.006, -0.5695, 0.415, 0.3455, -0.3465, 0.415, 1.006, -0.3465, 0.2644, 0.3455, -0.3465, 0.415, 1.006, -0.3465, 0.415, 0.3455, -0.3465, 0.415, 1.006, -0.3465, 0.2644, 0.3455, -0.3465, -0.2644, 0.3455, -0.3465, 0.415, 1.006, -0.3465, -0.2644, 0.3455, -0.3465, -0.415, 0.3455, -0.3465, 0.415, 1.006, -0.3465, -0.415, 0.3455, -0.3465, -0.415, 1.006, -0.3465, 0.2644, 0.3455, -0.3465, -0.2644, 0.2955, -0.3465, -0.2644, 0.3455, -0.3465, -0.2644, 0.2955, -0.3465, 0.2644, 0.3455, -0.3465, 0.2644, 0.2955, -0.3465, 0.2644, 0.3455, -0.3465, 0.2644, 0.2955, 0.8217, 0.2644, 0.2955, -0.3465, 0.2644, 0.2955, 0.8217, 0.2644, 0.3455, -0.3465, 0.2644, 0.3455, 0.8217, -0.2644, 0.2955, -0.3465, -0.2644, 0.3455, 0.8217, -0.2644, 0.3455, -0.3465, -0.2644, 0.3455, 0.8217, -0.2644, 0.2955, -0.3465, -0.2644, 0.2955, 0.8217, 0.2644, 0.2955, 0.8217, -0.2644, 0.2955, -0.3465, 0.2644, 0.2955, -0.3465, -0.2644, 0.2955, -0.3465, 0.2644, 0.2955, 0.8217, -0.2644, 0.2955, 0.8217, 0.415, 0.3455, 0.8217, 0.2644, 0.3455, -0.3465, 0.415, 0.3455, -0.3465, 0.2644, 0.3455, -0.3465, 0.415, 0.3455, 0.8217, 0.2644, 0.3455, 0.8217, -0.2644, 0.3455, 0.8217, -0.415, 0.3455, -0.3465, -0.2644, 0.3455, -0.3465, -0.415, 0.3455, -0.3465, -0.2644, 0.3455, 0.8217, -0.415, 0.3455, 0.8217 )
+
+[sub_resource type="ConcavePolygonShape" id=11]
+data = PoolVector3Array( 0.5, 0, -0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 1, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 1, 0.5, -0.1989, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, -0.1989, 0, -0.5, -0.1989, 0.6278, -0.5, -0.5, 1, -0.5, -0.1989, 0.6278, -0.5, 0.1989, 0.6278, -0.5, 0.1989, 0.6278, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, 0.1989, 0.6278, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, 0.1989, 0.6278, -0.5, 0.1989, 0, -0.5, 0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.1989, 0, -0.5, -0.5, 0, 0.5, 0.1989, 0, -0.5, 0.1466, 0, -0.475, -0.5, 0, 0.5, 0.1466, 0, -0.475, -0.1466, 0, -0.475, -0.5, 0, 0.5, -0.1466, 0, -0.475, -0.1466, 0, -0.5, -0.5, 0, 0.5, -0.1466, 0, -0.5, -0.1989, 0, -0.5, -0.5, 0, 0.5, -0.1989, 0, -0.5, -0.5, 0, -0.5, 0.1989, 0, -0.5, 0.1466, 0, -0.5, 0.1466, 0, -0.475, 0.1466, 0.5755, -0.5, -0.1466, 0.5755, -0.475, 0.1466, 0.5755, -0.475, -0.1466, 0.5755, -0.475, 0.1466, 0.5755, -0.5, -0.1466, 0.5755, -0.5, -0.1466, 0, -0.5, -0.1466, 0.5755, -0.475, -0.1466, 0.5755, -0.5, -0.1466, 0.5755, -0.475, -0.1466, 0, -0.5, -0.1466, 0, -0.475, 0.1466, 0.5755, -0.5, 0.1466, 0, -0.475, 0.1466, 0, -0.5, 0.1466, 0, -0.475, 0.1466, 0.5755, -0.5, 0.1466, 0.5755, -0.475, -0.1466, 0, -0.5, -0.1989, 0.6278, -0.5, -0.1989, 0, -0.5, -0.1989, 0.6278, -0.5, -0.1466, 0, -0.5, -0.1466, 0.5755, -0.5, -0.1989, 0.6278, -0.5, -0.1466, 0.5755, -0.5, 0.1466, 0.5755, -0.5, 0.1466, 0.5755, -0.5, 0.1989, 0.6278, -0.5, -0.1989, 0.6278, -0.5, 0.1466, 0.5755, -0.5, 0.1989, 0, -0.5, 0.1989, 0.6278, -0.5, 0.1989, 0, -0.5, 0.1466, 0.5755, -0.5, 0.1466, 0, -0.5, 0.1466, 0, -0.475, -0.1466, 0.5755, -0.475, -0.1466, 0, -0.475, -0.1466, 0.5755, -0.475, 0.1466, 0, -0.475, 0.1466, 0.5755, -0.475 )
+
+[sub_resource type="ProceduralSky" id=4]
+sky_top_color = Color( 0.227451, 0.262745, 0.282353, 1 )
+sky_horizon_color = Color( 0.596078, 0.529412, 0.403922, 1 )
+sun_latitude = -166.51
+
+[sub_resource type="Environment" id=5]
+background_mode = 2
+background_sky = SubResource( 4 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Ground" type="Spatial" parent="."]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground"]
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.998554 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance2/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.993659 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance3/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance18" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.99366 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance18"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance18/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance20" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00284012, 0, 1.99219 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance20"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance20/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance19" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33333, 0, 1.99366 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance19"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance19/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance12" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99684, 0, 0.993659 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance12"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance12/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance13" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00127, 0, -0.00634122 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance13"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance13/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00242, 3.97364e-08, -0.00599615 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance4/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301175, 0, 0 )
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance5/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="Ground"]
+transform = Transform( 0.622637, 0, 0.78251, 0, 1, 0, -0.78251, 0, 0.622637, 0.24466, 0, 0.755925 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance6/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="Ground/MeshInstance6"]
+transform = Transform( 0.166667, 0, -2.23517e-08, 0, 0.166667, 0, 2.23517e-08, 0, 0.166667, -0.0342097, 0.867033, -0.173287 )
+light_color = Color( 0.984314, 0.92549, 0.823529, 1 )
+shadow_enabled = true
+omni_range = 6.5
+
+[node name="MeshInstance39" type="MeshInstance" parent="Ground"]
+transform = Transform( -0.711057, 0, -0.703134, 0, 1, 0, 0.703134, 0, -0.711057, -4.07527, 0, -0.000191679 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance39"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance39/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="Ground/MeshInstance39"]
+transform = Transform( 0.166667, 0, -2.23517e-08, 0, 0.166667, 0, 2.23517e-08, 0, 0.166667, -0.0342097, 0.867033, -0.173287 )
+light_color = Color( 0.984314, 0.92549, 0.823529, 1 )
+shadow_enabled = true
+omni_range = 6.5
+
+[node name="MeshInstance10" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9605, -0.0450273, -1.00734 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance10/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance10/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance34" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9605, -0.0450273, -1.00734 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance34"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance34/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance34/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance35" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9605, -0.0450273, -1.00734 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance35"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance35/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance35/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance36" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9605, -0.0450273, -1.00734 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance36"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance36/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance36/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance37" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9605, -0.0450273, -0.340676 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance37"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance37/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance37/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance38" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9605, -0.0450273, 0.659324 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance38"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance38/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance38/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance40" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9605, 0.954973, -0.340676 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance40"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance40/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance40/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance41" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97758, 0.954973, -1.01681 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance41"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance41/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance41/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance42" type="MeshInstance" parent="Ground"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.97758, 0.954973, -1.01681 )
+mesh = ExtResource( 14 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance42"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance42/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance42/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance49" type="MeshInstance" parent="Ground"]
+transform = Transform( -0.00809814, 0, -0.999967, 0, 1, 0, 0.999967, 0, -0.00809814, -4.98836, 0.941803, 0.65338 )
+mesh = ExtResource( 14 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance49"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance49/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance49/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance43" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97758, 0.954973, -1.01681 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance43"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance43/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance43/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance21" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127165, -0.0450273, -1.00734 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance21"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance21/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance48" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127165, 0.954973, -1.00734 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance48"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance48/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance53" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.960499, 0.954973, -1.00734 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance53"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance53/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance50" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.872835, 0.954973, -1.00734 )
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance50"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance50/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00084, 0, 0.996495 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance11"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance11/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance23" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00084, 0, -0.00350506 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance23"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance23/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance51" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00084, 1, -0.00350506 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance51"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance51/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance52" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00084, 1, 0.996495 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance52"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance52/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance24" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.348315, -0.0458985, -1.00351 )
+mesh = ExtResource( 12 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance24"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance24/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance14" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance14"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance14/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance14/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance22" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance22"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance22/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance22/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance25" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance25"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance25/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance25/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance26" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance26"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance26/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance26/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance27" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance27"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance27/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance27/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance28" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance28"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance28/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance28/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance29" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance29"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance29/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance29/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance30" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance30"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance30/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance30/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance31" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance31"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance31/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance31/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance32" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance32"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance32/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance32/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance33" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance33"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance33/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance33/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance44" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1.66667 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance44"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance44/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance44/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance45" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2.66667 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance45"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance45/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance45/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance46" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 2.66667 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance46"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance46/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance46/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance47" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 1.66667 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance47"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance47/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance47/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance15" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance15"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance15/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance15/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance16" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+mesh = ExtResource( 13 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance16"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance16/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance16/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance17" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3 )
+mesh = ExtResource( 15 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance17"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance17/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ground/MeshInstance17/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.02376, 1.96165, -1.00821 )
+mesh = ExtResource( 5 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="MeshInstance8" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98923, 0.000407358, -0.00425283 )
+mesh = ExtResource( 10 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance8/StaticBody"]
+shape = SubResource( 12 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground/MeshInstance8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance8/MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance8/MeshInstance/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Ground/MeshInstance8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00879, 0, 1 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance8/MeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance8/MeshInstance2/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Ground/MeshInstance8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00879, 0, 1.99416 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance8/MeshInstance4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance8/MeshInstance4/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="Ground/MeshInstance8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.175452, 0, 1.99416 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance8/MeshInstance5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance8/MeshInstance5/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="Ground/MeshInstance8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.824548, 0, 1.99416 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance8/MeshInstance6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance8/MeshInstance6/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Ground/MeshInstance8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00879, 0, -0.00626675 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance8/MeshInstance3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance8/MeshInstance3/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="MeshInstance9" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.5846, -0.00544786, 2.04377 )
+mesh = ExtResource( 11 )
+material/0 = null
+material/1 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance9"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance9/StaticBody"]
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Ground/MeshInstance9"]
+transform = Transform( 0.166667, 0, -2.66454e-15, 0, 0.166667, 0, 2.66454e-15, 0, 0.166667, -0.276788, 0.415876, -0.943742 )
+spot_range = 21.1598
+spot_angle = 67.0607
+
+[node name="SpotLight2" type="SpotLight" parent="Ground/MeshInstance9"]
+transform = Transform( 0.166667, 0, -2.66454e-15, 0, 0.166667, 0, 2.66454e-15, 0, 0.166667, 0.280784, 0.415876, -0.943742 )
+spot_range = 12.0
+spot_angle = 73.9354
+
+[node name="MeshInstance54" type="MeshInstance" parent="Ground"]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -1.01376, -0.0377616, -1.00474 )
+mesh = ExtResource( 7 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground/MeshInstance54"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/MeshInstance54/StaticBody"]
+shape = SubResource( 11 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.79386, 1.60666, 3.16719 )
+
+[node name="AmmoPickup" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9856, 0.805861, 0 )
+
+[node name="AmmoPickup2" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.98563, 0.805861, 0 )
+
+[node name="AmmoPickup3" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98563, 0.805861, 0 )
+
+[node name="AmmoPickup4" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.98563, 0.805861, 0 )
+
+[node name="AmmoPickup5" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98563, 0.805861, 0 )
